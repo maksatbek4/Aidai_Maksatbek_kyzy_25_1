@@ -12,14 +12,24 @@
         .products_block {
             margin: 20px;
         }
+        .products_img{
+            width: 100%;
+
+        }
     </style>
     <div class="products">
         {% for prod in products %}
             <div class="products_block">
                 <div class="card" style="width: 18rem;">
                     <div class="card-body">
+                        <img  class="products_img" src="/media/{{ products.image }}" alt="">
                         <h5 class="card-title">{{ prod.title }}</h5>
                         <h6 class="card-title">Rate: {{ prod.price }}</h6>
+
+                        {% for hashtag in products.hashtags %}
+                            <p>{{ hashtag.title }}</p>
+                            {% endfor %}
+
                         <a href="#" class="card-link">More</a>
                     </div>
                 </div>
